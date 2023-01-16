@@ -10,6 +10,6 @@ import java.time.LocalDateTime;
 @Repository
 public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
 
-    public boolean existsByQuarto(String quarto);
+    public boolean existsByQuarto(String n_quarto);
     public boolean existsByEntrada(LocalDateTime entrada);
 }
