@@ -28,15 +28,21 @@ public class ReservaService {
 
 
     // Criacao do Serviço para informar se existe ou nao naquele dia o quarto esta livre
-    public boolean existsByQuarto(String quarto){
-        return reservaRepository.existsByQuarto(quarto);
+    public boolean existsByQuarto(String n_quarto){
+        return reservaRepository.existsByQuarto(n_quarto);
     }
 
     public boolean existsByEntrada(LocalDateTime entrada){
         return reservaRepository.existsByEntrada(entrada);
     }
 
+    //Listar pelo Id
+    public Optional<Reserva> buscarPeloId(Integer id){
+        return reservaRepository.findById(id);
+    }
 
-
-
+    // Criando serviço de Deletar
+    public void deletarPeloId(Integer id){
+         reservaRepository.deleteById(id);
+    }
 }
