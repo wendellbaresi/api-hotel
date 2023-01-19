@@ -1,5 +1,6 @@
 package com.reserva.hotel.service;
 
+import com.reserva.hotel.model.Quarto;
 import com.reserva.hotel.model.Reserva;
 import com.reserva.hotel.repository.ReservaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReservaService {
@@ -15,12 +17,13 @@ public class ReservaService {
     private ReservaRepository reservaRepository;
 
 
-    // Listar tudo
+    // Listar todas Reservas
     public List<Reserva> reservas(){
         return reservaRepository.findAll();
     }
 
 
+    // Salvar Reserva
     public Reserva salvar(Reserva reserva){
         return reservaRepository.save(reserva);
     }
@@ -28,8 +31,8 @@ public class ReservaService {
 
 
     // Criacao do Serviço para informar se existe ou nao naquele dia o quarto esta livre
-    public boolean existsByQuarto(String n_quarto){
-        return reservaRepository.existsByQuarto(n_quarto);
+    public boolean existsByIdAndEntrada(Quarto quarto, LocalDateTime entrada){
+        return !reservaRepository.existsByQuartoIdAndEntrada(quarto,entrada ).isEmpty();
     }
 
     public boolean existsByEntrada(LocalDateTime entrada){
@@ -45,4 +48,7 @@ public class ReservaService {
     public void deletarPeloId(Integer id){
          reservaRepository.deleteById(id);
     }
+
+
+
 }
