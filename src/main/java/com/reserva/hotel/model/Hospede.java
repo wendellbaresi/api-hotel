@@ -1,8 +1,9 @@
 package com.reserva.hotel.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
 
 
 @Entity
@@ -11,15 +12,20 @@ public class Hospede {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty("id")
     private Integer id;
 
+    @JsonProperty("nome")
     private String nome;
 
+    @JsonProperty("cpf")
     private String cpf;
 
+    @JsonProperty("rg")
     private Integer rg;
 
-    private LocalDateTime data_nascimento;
+    @JsonProperty("data_nascimento")
+    private LocalDateTime dataNascimento;
 
 
 
@@ -64,10 +70,10 @@ public class Hospede {
     }
 
     public LocalDateTime getData_nascimento() {
-        return data_nascimento;
+        return dataNascimento;
     }
 
     public void setData_nascimento(LocalDateTime data_nascimento) {
-        this.data_nascimento = data_nascimento;
+        this.dataNascimento = data_nascimento;
     }
 }
