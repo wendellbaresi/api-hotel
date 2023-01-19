@@ -1,0 +1,40 @@
+CREATE DATABASE hotel;
+
+USE hotel;
+
+
+SELECT * FROM hospede;
+
+INSERT INTO hospede VALUES
+(default,65432198720,"1993-05-10","Ana Paula",6543212),
+(default,78945612302,"1990-10-20","Wendell Baresi",6352415);
+
+INSERT INTO hospede VALUES
+(default,12345698741,"1990-06-10","Julio",1452362),
+(default,32178945610,"1999-5-10","Wendell Baresi",5423012);
+
+
+INSERT INTO quarto VALUES
+(DEFAULT,"101A"),
+(DEFAULT,"102A"),
+(DEFAULT,"101B"),
+(DEFAULT,"102B"),
+(DEFAULT,"101C"),
+(DEFAULT,"102C");
+
+
+DESCRIBE hospede;
+
+
+SELECT * FROM quarto;
+
+SELECT * FROM reserva;
+
+INSERT INTO reserva VALUES
+(DEFAULT,"2023-1-15","2023-1-20",1,3),
+(DEFAULT,"2023-2-20","2023-2-25",2,4);
+
+INSERT INTO reserva VALUES
+(DEFAULT,"2023-1-15","2023-1-20",4,2),
+(DEFAULT,"2023-3-1","2023-3-14",3,1);
+
