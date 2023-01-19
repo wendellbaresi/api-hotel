@@ -1,25 +1,31 @@
 package com.reserva.hotel.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.reserva.hotel.model.Hospede;
 import com.reserva.hotel.model.Quarto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 public class ReservaDto {
 
-    @NotBlank
+    @NotNull
+    @JsonProperty("entrada")
     private LocalDateTime entrada;
 
 
-    @NotBlank
+    @NotNull
+    @JsonProperty("saida")
     private LocalDateTime saida;
 
 
-    @NotBlank
+    @NotNull
+    @JsonProperty("hospede")
     private Hospede hospede;
 
-    @NotBlank
+    @NotNull
+    @JsonProperty("quarto")
     private Quarto quarto;
 
 
